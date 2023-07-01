@@ -1,4 +1,5 @@
 import React from "react";
+import Form from "../Form";
 
 
 const Modal = ({ onClose = () => {} , } ) => {
@@ -8,10 +9,7 @@ const Modal = ({ onClose = () => {} , } ) => {
                 <button className="close" onClick={onClose}/>
                 <div className="content">
                     <h1>Adicionar informação</h1>
-                    <div className="outputFormat">
-                        <h2>Receita</h2>
-                        <h2>Gasto</h2>
-                    </div>
+                    <Form/>
                 </div>
             </div>
         </div>
