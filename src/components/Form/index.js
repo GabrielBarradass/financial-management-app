@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
-const Form = () => {
+
+const Form = ({ handleAdd }) => {
     const [desc, setDesc] = useState("");
     const [amount, setAmount] = useState("");
     const [isExpense, setExpense] = useState(false);
+
+    const generateID = () => Math.round(Math.random() * 1000);
 
     const handleSave = () => {
         if (!desc || !amount) {
@@ -13,6 +16,18 @@ const Form = () => {
             alert("O valor tem que ser positivo");
             return;
         }
+
+        const trasaction = {
+            id: generateID(),
+            desc: desc,
+            amount: amount,
+            expense: isExpense,
+        };
+
+        handleAdd(trasaction);
+
+        setDesc("");
+        setAmount("");
     };
 
     
